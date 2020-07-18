@@ -20,33 +20,32 @@ class Main extends Component {
     }
     
     selection_sort() {
-       // const sortedarray = SelectionSort(this.state.array);
-       // this.setState({array: sortedarray});
-        //console.log(this.state.array);
-
-
+       
         const animations = SelectionSortAnimations(this.state.array);
         console.log(animations);
         for (let i = 0; i < animations.length; i++) {
             const arrayBars = document.getElementsByClassName('bar');
-            if (animations[i][2]==0) {
+            if (animations[i].length==2) {
                 const [barOneIdx, barTwoIdx ,f] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
                 const barTwoStyle = arrayBars[barTwoIdx].style;
-                const color = i%2 === 0 ? "red" : "blue" ;
+                const color = "red" ;
                 setTimeout(() => {
                 barOneStyle.backgroundColor = color;
                 barTwoStyle.backgroundColor = color;
-                }, i*1);
+                }, i*0.5);
             } else {
                 setTimeout(() => {
                     const color = "blue" ;
-                    const [barOneIdx, newHeight,f] = animations[i];
+                    const [barOneIdx,barTwoIdx, newHeight1, newHeight2] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
-                    barOneStyle.height = `${newHeight}px`;
+                    const barTwoStyle = arrayBars[barTwoIdx].style;
+                    barOneStyle.height = `${newHeight1}px`;
+                    barTwoStyle.height = `${newHeight2}px`;
                     barOneStyle.backgroundColor = color;
+                    barTwoStyle.backgroundColor = color;
                     
-                    },i*1);
+                    },i*0.5);
             }
         }
 

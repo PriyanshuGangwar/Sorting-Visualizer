@@ -14,13 +14,13 @@ function SelectionSortHelper(arr, animations){
     for (let i = 0; i < len; i++) {
         let min = i;
         for (let j = i + 1; j < len; j++) {
-            animations.push([i,j,0]);
-            animations.push([i,j,0]);
+            animations.push([i,j]);
+           // animations.push([i,j]);
             if (arr[min] > arr[j]) {
                 min = j;
             }
         }
-        animations.push([k++, arr[min],1]);
+        animations.push([k++,min,arr[min],arr[i]]);
         if (min !== i) {
             
             //array[k++] = array[min];
