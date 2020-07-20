@@ -169,6 +169,7 @@ class Main extends Component {
                     barOneStyle.height = `${newHeight}px`;
                     barOneStyle.backgroundColor = color;
                     }
+                    
                     else{
                         color = "blue";
                         const barOneStyle = arrayBars[barOneIdx].style;
